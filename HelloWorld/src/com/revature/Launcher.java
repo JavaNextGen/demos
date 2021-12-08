@@ -23,7 +23,7 @@ public class Launcher {
 		
 	}
 	
-	//BEN WILL ELABORATE ON METHOD ANATOMY HERE
+	//Here's an example method, check the notes for method anatomy.
 	public static int exampleMethod(int a, int b) {
 		return a + b;
 	}
