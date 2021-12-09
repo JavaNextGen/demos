@@ -76,7 +76,7 @@ public class Launcher {
 		
 		//using downcasting----------------------------------------------------
 		
-		Bugatti b = (Bugatti) new Car();
+		//Bugatti b = (Bugatti) new Car();
 		//This will compile, but will throw an exception at runtime - 
 		//It's illegal because not all Cars are necessarily Bugattis. Java doesn't know how to make this distinction
 		
@@ -84,7 +84,7 @@ public class Launcher {
 		Car downCar = new Bugatti();
 		((Bugatti)downCar).clout = 7; //without this explicit downcast, we wouldn't be able to access the clout field
 		
-		
+		//this is really the only reason you'd downcast. If you need to access members that were hidden by an upcast.
 		
 	}
 

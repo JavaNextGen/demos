@@ -44,13 +44,32 @@ public class Launcher {
 		do {
 			smallNum -= 100;
 			System.out.println("smallNum has decreased to: " + smallNum);
-		} while(smallNum < 1000);
+		} while(smallNum < 10);
 		
 		System.out.println("Do While Loop has completed! Enjoy your new number");
 		
 		
+		System.out.println("===========================================(For Loops)");
 		
+		//basic for loop
+		
+		int loopVictim = 0;
+	
+		//"for as long as this int i, which starts at 0, is less than 10, increment it once per loop
+		for(int i = 0; i < 10; i++) { //it's typical practice to call the int "i" for "iterator"
+			loopVictim += 2;
+			System.out.println("Our loop victim is now: " + loopVictim);
+			System.out.println("Our loop variable/iterator is now: " + i);
+			//notice "Our loop variable/iterator is now: 10" never prints, since the loops breaks once i is not > 10
+		}
+		
+		//The loop executed 10 times (0-9 times). Once i = 10, the loop completes and doesn't execute its code again.
+		
+		
+		
+		//more interesting use of for loops........
 		
 	}
+	
 	
 }
