@@ -5,6 +5,7 @@ package com.revature.models;
 
 public class Car {
 
+	
 	//declaring some car fields, we will give them values in constructors below------------
 	
 	public int tires;
