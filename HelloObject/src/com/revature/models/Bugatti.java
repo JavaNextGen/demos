@@ -16,6 +16,13 @@ public class Bugatti extends Car {
 	
 	//Method Overriding below------- note the @Override annotation
 	
+	//Without Overriding, the Bugatti Class would have the exact same drive() method as the Car class...
+	//But here, we declare the same method signature, with a different implementation (aka method body)
+	//Why do we do this? So that the Bugatti Class can have it's own specific implementation of the drive() method.
+	@Override
+	public String drive(int speed) {
+		return "You are zooming " + speed * 2 + " miles per hour in your new Bugatti";
+	}
 	
 	
 	//Making a no-args and all-args constructor---------------------

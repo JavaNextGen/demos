@@ -47,7 +47,44 @@ public class Launcher {
 		System.out.println(bugatti.drive(65)); //Using the drive() method of the Bugatti class
 		
 		//Using the wakeUp() method of the Bugatti class
-		bugatti.wakeUp();
+		bugatti.wakeUp(); 
+		//calling wakeUp() will print out the print statment found in the method
+		//this is in contract to the drive() method above, which RETURNS a String that we have to print out
+		
+		//car.wakeUp(); 
+		//objects of type Car cannot call the Bugatti-specific wakeUp() method.
+		//Bugatti extends Car, so Bugatti has everything Car has, but Car may not have everything Bugatti has.
+		
+		
+		System.out.println("========================================(Casting)");
+		
+		//using upcasting---------------
+		
+		//a subclass-type object (Bugatti) gets assigned to a superclass-type variable (Car)
+		Car upCar = new Bugatti();
+		
+		//this is legal and done implicitly by the compiler, because a Bugatti will always be a Car.
+		
+		//upCar.wakeUp();
+		//upCar is of type Car... so the wakeUp() method doesn't exist
+		
+		System.out.println(upCar.drive(2000));
+		//upCar is of type car, BUT the Bugatti-specific version of drive() will be used. Because we upcasted!
+		
+		//upCar.doors is valid, because doors exists in the Car class
+		//upCar.clout would cause an error, because the clout field does not exist in the Car class
+		
+		//using downcasting----------------------------------------------------
+		
+		Bugatti b = (Bugatti) new Car();
+		//This will compile, but will throw an exception at runtime - 
+		//It's illegal because not all Cars are necessarily Bugattis. Java doesn't know how to make this distinction
+		
+		//parent type reference variable assigned to a child class object
+		Car downCar = new Bugatti();
+		((Bugatti)downCar).clout = 7; //without this explicit downcast, we wouldn't be able to access the clout field
+		
+		
 		
 	}
 
