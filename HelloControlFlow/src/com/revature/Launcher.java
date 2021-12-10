@@ -69,6 +69,67 @@ public class Launcher {
 		
 		//more interesting use of for loops........
 		
+		//this is an Array, which we'll talk more about next week
+		char[] myName = {'B', 'E', ' ', 'N', 'A', 'A', 'A'};
+		
+		System.out.println(myName);
+		
+		//I want to use control flow to clean up this Array so that we only get my name (BEN)
+		
+		for (int i = 0; i < myName.length; i++) {
+			
+			//clean out the empty space AND the As in the array
+			//note: we use OR (||), but XOR (^) would also work here
+			if(myName[i] == ' ' || myName[i] == 'A') {
+				continue;
+				//if the char at position i is equal to an empty space OR an A, skip this iteration of the for loop
+			} 
+			
+			
+			//I commented this code out in order to make the if statement cleaner and demonstrate "or" || ....
+			
+//			//clean out the As in the array
+//			if(myName[i] == 'A') {
+//				break;
+//				//if the char at position i is equal to A, break the for loop completely
+//			}
+//			
+//			//I separated continue and break into two if statements for clarity...
+//			//But it would probably be cleaner if we did an if and elseif
+			
+			//if none of the if statments run, the char at position i will print
+			System.out.print(myName[i]);
+			
+			//left out the "ln" in "println" in order to print this all on one line
+			//note the problem here... this makes the next print statement print on the same line as it
+			
+		}
+		
+		System.out.println("=================================(Switch Statement)");
+		
+		//initialize a variable to use as our switch evaluation
+		int age = 30;
+		
+		//depending on the value of the "age" variable, one of the following cases will run
+		switch(age) {
+		
+		//each case is set up to run certain code if age == to the case.
+		//we need break statements at the end of case, or else every case under the one that executes will run
+		case 20:
+			System.out.println("you are 20 years old");
+			break;
+		case 23: 
+			System.out.println("you are 23 years old");
+			break;
+		case 24:
+			System.out.println("you are 24 years old");
+			break;
+		default:
+			System.out.println("your age does not match any of the cases");
+			break;
+			//the default case will run if none of the cases above match the switch statment evaluation
+		}
+		
 	}
 	
 	
