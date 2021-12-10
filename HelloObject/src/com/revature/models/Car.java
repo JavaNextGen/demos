@@ -8,9 +8,10 @@ public class Car {
 	
 	//declaring some car fields, we will give them values in constructors below------------
 	
-	public int tires;
-	public int doors;
-	public String color; //for now, just know that Strings store text. We'll talk more about them next week
+	//These fields are private because we're using encapsulation. we can access these fields thanks to getters and setters
+	private int tires;
+	private int doors;
+	private String color; //for now, just know that Strings store text. We'll talk more about them next week
 	
 	//giving the Car class a method------------
 	
@@ -45,10 +46,35 @@ public class Car {
 	//we're saying the tires/doors/color of THIS object we're creating is = the tires/doors/color given in the arguments
 		
 	}
+
+	//Getters and Setters so that we can access our private fields, and complete our encapsulation
+	//Getters let us retrieve the fields
+	//Setters let us manipulate the fields
+	//You can generate these easily by going to source -> generate getters & setters
 	
-	
-	//A constructor with only some arguments
-	
+	public int getTires() {
+		return tires;
+	}
+
+	public void setTires(int tires) {
+		this.tires = tires;
+	}
+
+	public int getDoors() {
+		return doors;
+	}
+
+	public void setDoors(int doors) {
+		this.doors = doors;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}	
 	
 	
 }

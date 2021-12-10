@@ -17,19 +17,30 @@ public class Launcher {
 			//It's referencing out myCar object, which is of type Car. An object of the Car class.  
 		
 		//Let's print some of myCar's fields-----
-		System.out.println(myCar.tires); //4
-		System.out.println(myCar.doors); //2
-		System.out.println(myCar.color); //Red
+		System.out.println(myCar.getTires()); //4
+		System.out.println(myCar.getDoors()); //2
+		System.out.println(myCar.getColor()); //Red
 		//Because we instantiated myCar with no arguments, it has the default values we gave the no-args constructor
 		
+		//Using the setter() methods of Car to manipulate the fields
+		
+		myCar.setColor("chartreuse");
+		myCar.setDoors(40);
+		myCar.setTires(12);
+		
+		System.out.println(myCar.getColor());
+		System.out.println(myCar.getDoors());
+		System.out.println(myCar.getTires());
+		
+		//these fields have now changed, thanks to the use of the setter methods
 		
 		//Instantiating a new Car object, using the all-args constructor 
 		Car myOtherCar = new Car(3, 4, "Blue");
 		
 		//Let's print some of myOtherCar's fields-----
-		System.out.println(myOtherCar.tires);
-		System.out.println(myOtherCar.doors);
-		System.out.println(myOtherCar.color);
+		System.out.println(myOtherCar.getTires());
+		System.out.println(myOtherCar.getDoors());
+		System.out.println(myOtherCar.getColor());
 		//Because we instantiated myOtherCar with 3 arguments, the all-args constructor is called.
 		
 		//trying to print the reference variables... we get the path, and a random string of characters
