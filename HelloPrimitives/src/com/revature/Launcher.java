@@ -116,6 +116,31 @@ public class Launcher {
 		int j = ++incrementTest;
 		System.out.println(j);
 		
+		
+		System.out.println("==================================(Wrapper classes?)");
+		
+		//wrapper classes are the object versions of primitives... some examples below
+		
+		Integer integer = 2;
+		
+		Integer integer2 = new Integer(750); 
+		//this is deprecated (old, no longer necessary), mostly because it's easier to initialize like we do above
+		
+		Character character = 'A';
+		
+		Boolean wrapperBool = true;
+		
+		//the rest of the wrapper classes follow the same naming convention as Boolean (uppercase first letter)
+		
+		Short shawdy = 35;
+		
+		System.out.println("Hey shawdy you are equal to: " + shawdy);
+		
+		//wrapper classes are classes... so they have methods we can access.
+		
+		//random method I found that turns your Integer into a binary String
+		System.out.println(integer.toBinaryString(6000000));
+		
 	}
 	
 
