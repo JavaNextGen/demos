@@ -46,10 +46,38 @@ public class Launcher {
 		System.out.println(pangram.charAt(0)); //first character
 		System.out.println(pangram.charAt(pangram.length() - 1));
 		
-		String concat = s1 + s2;
-		System.out.println(concat);
-		System.out.println(s1);
+		//.charAt() in a for loop
+		for(int i = 0; i < pangram.length(); i++) {
+			System.out.println(pangram.charAt(i));
+		}
 		
+		//print statement shortcut "syso" + ctrl + space
+
+		//.substring() returns a String that's found within the given String
+		System.out.println(pangram.substring(4, 25)); //this will print characters 4-25 of our pangram String
+		
+		//one more method - .split() will create an Array via specified delimiters
+		String[] words = pangram.split(" "); //this Array will hold every word in the pangram
+		
+		System.out.println(words); //This will simply print a memory address
+		
+		//we'll use an enhanced for loop to print out the Array's concepts
+		for(String word : words) { //"for every String (denoted by the "word" variable) in the words Array, do this"
+			System.out.println(word);
+		}
+		
+		//enhanced for loops are a super convenient way to iterate through things like Arrays
+		
+		//some String theory lol--------
+		
+		//Note that using the above methods WON'T actually change the original String pangram
+		//we've been using methods to print manipulations of the original String, but they aren't stored as new objects
+		//See StringBuilder below for mutable String-like behavior
+		
+		//you COULD always assign a new String variable to the manipulations
+		
+		String newString = s1 + s2.length() + s3.toUpperCase() + pangram.charAt(16);
+		System.out.println(newString);
 		
 		
 		//tbd... StringBuilder, Scanner
