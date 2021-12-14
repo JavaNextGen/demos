@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.Scanner;
+
 public class Launcher {
 
 	public static void main(String[] args) {
@@ -90,14 +92,37 @@ public class Launcher {
 		sb.append("BENJAMIN"); //append my name to the end of the StringBuilder
 		sb.insert(12, "PATRICK"); //insert Patrick's name at index 12
 		sb.delete(20, 27); //delete the chars found in indeces 20-27
-		sb.replace(0, 8, "He"); //replace the chars in indeces 0-8
+		sb.replace(0, 8, "Hello from the replace method :)"); //replace the chars in indeces 0-8
 		
 		System.out.println(sb); //the original pangram is completely unrecognizable 
 		
-		
+		String newerString = sb.toString(); //StringBuilders have a toString() method, which will convert it back into a string 
+		//why would you do this? some methods will call specifically for Strings...
+		//if I have a String that I need to change, I would make a StringBuilder to make those changes
+		//and then use toString() to convert it back into a String.
 		
 		System.out.println("============================================(Scanner)");
 
+		//create a Scanner Object
+		Scanner scan = new Scanner(System.in); //System.in represents the console
+		
+		System.out.println("What's your name?"); //ask the user a question
+		
+		String name = scan.nextLine(); //the nextLine() method gathers a user input STRING and moves to the next line
+		
+		System.out.println(name + " huh?... Lovely name bro"); //now we can use the variable holding the user input
+		
+		
+		System.out.println("How old are you?");
+		
+		int age = scan.nextInt(); //nextInt() will grab the int, but doesn't make a new line...
+		scan.nextLine(); //we need to explicitly call nextLine() in order to actually move to the next line
+		
+		System.out.println("What?!?!?! " + age + "?? What's your secret?");
+		
+		String secret = scan.nextLine();
+		
+		System.out.println("OK starting tomorrow I'll " + secret);
 		
 		
 	}
