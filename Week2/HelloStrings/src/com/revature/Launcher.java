@@ -80,8 +80,26 @@ public class Launcher {
 		System.out.println(newString);
 		
 		
-		//tbd... StringBuilder, Scanner
+		System.out.println("=============================================(StringBuilder)");
+		
+		//instantiate a new StringBuilder object based on our pangram String
+		StringBuilder sb = new StringBuilder(pangram);
+		
+		//perform some mutations using StringBuilder methods
+		sb.reverse(); //reverse the characters
+		sb.append("BENJAMIN"); //append my name to the end of the StringBuilder
+		sb.insert(12, "PATRICK"); //insert Patrick's name at index 12
+		sb.delete(20, 27); //delete the chars found in indeces 20-27
+		sb.replace(0, 8, "He"); //replace the chars in indeces 0-8
+		
+		System.out.println(sb); //the original pangram is completely unrecognizable 
+		
+		
+		
+		System.out.println("============================================(Scanner)");
 
+		
+		
 	}
 
 }
