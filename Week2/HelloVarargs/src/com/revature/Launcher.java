@@ -18,6 +18,11 @@ public class Launcher {
 		for(String string : varargsString) {
 			System.out.println(string);
 		}	
+		
+		for(String string : varargsString) {
+			System.out.println(string);
+		}	
+		
 	}
 	
 	public static void main(String[] args) {
@@ -28,5 +33,7 @@ public class Launcher {
 		System.out.println("============================================================");
 		
 		varargsMethod(68, "Goodbye", "it was almost nice to see you", "come again soon");	
+
+		
 	}
 }
