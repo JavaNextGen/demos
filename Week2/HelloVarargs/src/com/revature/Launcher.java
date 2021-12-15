@@ -33,7 +33,7 @@ public class Launcher {
 		System.out.println("============================================================");
 		
 		varargsMethod(68, "Goodbye", "it was almost nice to see you", "come again soon");	
-
 		
 	}
+	
 }
