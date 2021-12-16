@@ -17,8 +17,7 @@ public class Associate extends Person {
 	//we can access the talk() method from the Person Abstract Class
 	@Override
 	public String talk(String words) {
-		// TODO Auto-generated method stub
-		return null;
+		return "Ben is aight and " + words;
 	}
 
 
