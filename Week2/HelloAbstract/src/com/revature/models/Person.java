@@ -1,8 +1,9 @@
 package com.revature.models;
 
-//This is an abstract class, note the abstract keyword. It will also implement our interface
-//
-public abstract class Person {
+//This is an abstract class, note the abstract keyword. It will also implement our Walkable interface
+//So now, this abstract class also has access to the field and methods in Walkable
+//Note - why isn't Java forcing us to implement the abstract move() method in Walkable?
+public abstract class Person implements Walkable {
 
 	//abstract classes can have fields
 	public String name;
