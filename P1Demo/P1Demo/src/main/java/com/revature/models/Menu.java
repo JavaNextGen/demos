@@ -58,7 +58,6 @@ public class Menu {
 			}
 			
 			//this default block will catch any user inputs that don't match a valid menu option
-			
 			default: {
 				System.out.println("Invalid selection... try again :'( ");
 				break;
