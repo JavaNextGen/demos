@@ -2,6 +2,7 @@ package com.revature;
 
 import com.revature.models.Associate;
 import com.revature.models.Person;
+import com.revature.models.Walkable;
 
 public class Launcher {
 
@@ -32,6 +33,13 @@ public class Launcher {
 		daniel.move(50); //this is a member of the Person class - so it's still visible
 
 		daniel.talk(" making real progress on my project"); //this is visible, because it's an overridden method
+		
+		
+		//we could also upcast using an interface, since it's considered a parent type to Associate-------------------
+		
+		Walkable hassan = new Associate();
+		
+		
 		
 	}
 
