@@ -2,7 +2,10 @@ package com.revature;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.TreeMap;
 
 import com.revature.models.Pokemon;
 
@@ -107,15 +110,55 @@ public class Launcher {
 			System.out.println("Eevee do be in there thoooooo");
 		}
 		
+		//Sets have no index... but if we use .iterator() we can create an Iterator from that set
+		Iterator<Pokemon> it = myPokemonSet.iterator();
 		
-//		System.out.println("=========================================(Queues)");
-//		
-//		
-//		
-//	
-//		
-//		System.out.println("=========================================(Maps)");
-//		
+		//while there are element left in this iterator, print the next element
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		//the while loop breaks once there are no more values
+		
+		
+		System.out.println("=========================================(Queues)");
+		
+		LinkedList<Pokemon> pokemonLL = new LinkedList<Pokemon>();
+		
+		pokemonLL.add(new Pokemon("Charizard", "Fire/Flying"));
+		pokemonLL.add(new Pokemon("Mudkip", "Water"));
+		pokemonLL.add(1, new Pokemon("Magikarp", "Water")); //adding to a specific index
+	
+		//iterate through the linkedlist
+		for(Pokemon p : pokemonLL) {
+			System.out.println(p);
+		}
+		//note the order - queues have a strict order based on index
+		
+		//show the name of the first Pokemon using .peek()
+		System.out.println(pokemonLL.peek().getName() + " is the first Pokemon in the LinkedList");
+		
+		//.poll() will get and remove the first element
+		System.out.println(pokemonLL.poll().getName() + " is leaving the chat");
+		
+		//notice that charizard is gone!
+		for(Pokemon p : pokemonLL) {
+			System.out.println(p);
+		}
+		
+		System.out.println("=========================================(Maps)");
+		
+		//Instantiate a super simple map before working with Pokemon objects
+		
+		TreeMap<Integer, String> simpleMap = new TreeMap<>();
+		//created a treemap object with an Integer key, and a String value
+		//the data types of keys and values can be whatever you want!
+		
+		//insert values into the map
+		simpleMap.put(1, "one");
+		simpleMap.put(1, "two");
+		simpleMap.put(3, "two"); //duplicate values are allowed!
+		
+		System.out.println(simpleMap);
 		
 	}
 	
