@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //import vs import static? In this case, we need to import the static members of the Assertions class
@@ -42,6 +43,8 @@ public class CalculatorTests {
 	
 	//Now let's actually write some unit tests--------------------------
 	
+	//*TO RUN A TEST CLASS: right click the class -> run as -> JUnit test
+	
 	@Test //We need this annotation for the method to be recognized as a test
 	public void testAdd() {
 		System.out.println("TESTING ADD METHOD");
@@ -54,6 +57,15 @@ public class CalculatorTests {
 	}
 	
 	
+	@Test
+	public void testSubtract() {
+		System.out.println("TESTING SUBTRACT METHOD");
+		
+		result = c.subtract(i, j);
+		
+		assertEquals(-12, result);
+
+	}
 	
 	
 }
