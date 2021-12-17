@@ -50,6 +50,14 @@ public class Pokemon {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	//the toString() method lets you do String-like stuff with your objects, like print them out
+	//otherwise, you'd just get the memory address printed out... which makes no sense to us humans
+	@Override
+	public String toString() {
+		return "Pokemon [name=" + name + ", type=" + type + "]";
+	}
+	
 	
 	
 	
