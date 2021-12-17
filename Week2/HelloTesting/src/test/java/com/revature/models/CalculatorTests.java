@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //import vs import static? In this case, we need to import the static members of the Assertions class
@@ -63,9 +64,21 @@ public class CalculatorTests {
 		
 		result = c.subtract(i, j);
 		
-		assertEquals(-12, result);
-
+		assertEquals(-12, result); //takes two parameters, and checks their equality
+		//if -12 is equivalent to the value of the result variable, this test passes
+		
 	}
 	
+	
+	@Test
+	public void testDivideByZeroThrowsException() {
+		System.out.println("TRYING TO DIVIDE BY ZERO");
+		
+		assertThrows(ArithmeticException.class, () -> c.divide(i, k));
+		//"assert that dividing by zero throws an ArithmeticException"
+		//we're using a lambda here: (parameters) -> [some functionality]
+			//it's a quick and easier route than using methods...
+			//I don't like them that much, but some Java structures like assertThrows require them.
+	}
 	
 }
