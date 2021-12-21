@@ -18,7 +18,7 @@ CREATE TABLE turtles(
 	age int CHECK (age > 0), --no unborn turtles in this turtle nursery! any turtle with age < 0 can't be inserted.
 	weight decimal(5, 2), --5 total digits, 2 decimal places. so 3 numbers to the left of the decimal, 2 to the right.
 	
-	owner_id int REFERENCES owners (owner_id) --this is a FOREIGN KEY. (note the use of "references")
+	owner_id int REFERENCES owners (owner_id) ON UPDATE cascade --this is a FOREIGN KEY. (note the use of "references")
 	--this is saying, this foreign key is bound to the primary key (onwer_id) of the owners table
 	--THIS IS HOW WE ESTABLISH RELATIONSHIPS BETWEEN OUR TABLES OF DATA (in a relational database)
 );
@@ -134,8 +134,9 @@ DELETE FROM turtles WHERE name = 'Carol';
 SELECT count(*) FROM turtles WHERE age > 5; 
 
 
-
-
+UPDATE owners SET owner_id = 7 WHERE owner_id = 3;
+--this command will not work... due to referential integrity rules!
+--you can't update/delete something that has other records referencing it.
 
 
 
