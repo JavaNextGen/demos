@@ -48,7 +48,3 @@ CREATE TABLE datatypes (
 
 --This is NOT all of the datatypes... There are so many
 --But most of the time, data will just be numbers, text, and times, and the occasional boolean
-
-
-
-
