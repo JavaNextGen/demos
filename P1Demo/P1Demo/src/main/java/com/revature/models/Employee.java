@@ -10,8 +10,6 @@ public class Employee {
 	private int role_id;
 	
 	
-	
-	
 	//boilerplate code below------------------------------
 	
 	//no args constructor
