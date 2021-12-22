@@ -39,7 +39,7 @@ public class ConnectionFactory {
      * <p>Typically, this is accomplished via the use of the {@link java.sql.DriverManager} class.</p>
      * @throws SQLException 
      */
-    public Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         
     	//For compatibility with other technologies, we need to register our PostgreSQL Driver
     	//This process makes the application aware of what database Driver (SQL dialect) we're using
