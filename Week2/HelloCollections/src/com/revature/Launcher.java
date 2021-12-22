@@ -155,7 +155,7 @@ public class Launcher {
 		
 		//insert values into the map
 		simpleMap.put(1, "one");
-		simpleMap.put(1, "two");
+		simpleMap.put(1, "two"); //duplicate keys will be ignored! the old value gets replaced
 		simpleMap.put(3, "two"); //duplicate values are allowed!
 		
 		System.out.println(simpleMap);
