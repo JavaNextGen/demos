@@ -125,6 +125,35 @@ SELECT * FROM avengers RIGHT OUTER JOIN homes ON home_base = home_base_fk;
 
 ----------------------------------------------------------------------(Set Operations)
 
+SELECT * FROM avengers;
+
+--we use set operations to combine multiple queries
+	--DON'T confuse them with joins!! think joins -> tables, setops -> queries
+	
+--UNION
+--All distint rows from query, no duplicates
+SELECT home_base_fk FROM avengers UNION SELECT home_base FROM homes;
+
+--UNION ALL
+--All distinct rows from each query, including duplicates
+SELECT home_base_fk FROM avengers UNION ALL SELECT home_base FROM homes;
+
+
+--INTERSECT
+--Returns unique rows found in BOTH queries
+SELECT home_base_fk FROM avengers INTERSECT SELECT home_base FROM homes;
+
+
+--EXCEPT
+--Returns unique rows found in the first query that DON'T appear in the second query
+
+
+SELECT home_base_fk FROM avengers EXCEPT SELECT home_base FROM homes;
+
+SELECT home_base FROM homes EXCEPT SELECT home_base_fk FROM avengers;
+
+
+
 
 
 
