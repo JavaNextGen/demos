@@ -31,6 +31,7 @@ public class Menu {
 			System.out.println("hi -> get greeted");
 			System.out.println("employees -> show all employees");
 			System.out.println("employeesById -> get employees with a certain ID");
+			System.out.println("add -> add a new employee");
 			System.out.println("exit -> exit the application");
 			
 			
@@ -63,6 +64,30 @@ public class Menu {
 				System.out.println("functionality tbd");
 				break;
 			}
+			
+			case "add" : {
+				
+				//we need to prompt the user for the employee's name, and their role_id
+				System.out.println("Enter Employee First Name");
+				String f_name = scan.nextLine();
+				
+				System.out.println("Enter Employee Last Name");
+				String l_name = scan.nextLine();
+				
+				System.out.println("Enter Role Id: 1) Manager 2) Fry Cook 3) Cashier 4) Marketing 5) Nepotism");
+				int roleId = scan.nextInt(); //we need nextInt because ID is an int datatype in the database
+				scan.nextLine(); //without any nextLine(), your enter keystroke will be grabbed as the next input
+				//so we need nextLine() in order to actually move to the..... NEXT line!
+				
+				//Given all this information, we'll create a new Employee object to send to the service layer
+				//then the service layer will send it to the repository layer.
+				Employee newEmployee = new Employee(f_name, l_name, roleId);
+				
+				//Put the new Employee into the addEmployee() method in the EmployeeService Class
+				
+				
+			}
+				
 			
 			case "exit": {
 				displayMenu = false;
