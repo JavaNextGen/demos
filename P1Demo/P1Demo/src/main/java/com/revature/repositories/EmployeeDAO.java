@@ -78,7 +78,7 @@ public class EmployeeDAO {
 			
 			//use the PreparedStatement objects' methods to insert values into the query's ?s
 			//the values will come from the Employee object we send in.
-			ps.setString(1, newEmployee.getF_name());
+			ps.setString(1, newEmployee.getF_name()); //1 is the first ?, 2 is the second, etc.
 			ps.setString(2, newEmployee.getL_name());
 			ps.setInt(3, newEmployee.getRole_id());
 			

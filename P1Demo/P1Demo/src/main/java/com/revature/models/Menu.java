@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.revature.repositories.EmployeeDAO;
+import com.revature.services.EmployeeService;
 
 //This Menu Class will have a displayMenu() method that displays the menu to the user and lets them interact with it
 //The menu will make use of the Scanner class to take user inputs in order to travel through the menu options.
 public class Menu {
 
 	EmployeeDAO eDAO = new EmployeeDAO(); //we need this object to use methods from EmployeeDAO
+	EmployeeService es = new EmployeeService();
 	
 	//All of the menu display options and control flow are contained within this method
 	public void displayMenu() {
@@ -84,7 +86,7 @@ public class Menu {
 				Employee newEmployee = new Employee(f_name, l_name, roleId);
 				
 				//Put the new Employee into the addEmployee() method in the EmployeeService Class
-				
+				es.addEmployee(newEmployee);
 				
 			}
 				

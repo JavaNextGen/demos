@@ -11,8 +11,8 @@ public class EmployeeService {
 		
 		//take in the Employee object sent from the menu and send it to the EmployeeDAO to be inserted into the database
 		
-		//we need to actually write the DAO method that inserts the new Employee
-		
+		//call the DAO method that inserts the new Employee
+		eDAO.insertEmployee(newEmployee);
 	}
 	
 }
