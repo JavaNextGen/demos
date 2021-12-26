@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 import com.revature.repositories.EmployeeDAO;
 import com.revature.services.EmployeeService;
+import com.revature.services.RoleService;
 
 //This Menu Class will have a displayMenu() method that displays the menu to the user and lets them interact with it
 //The menu will make use of the Scanner class to take user inputs in order to travel through the menu options.
 public class Menu {
 
-	EmployeeDAO eDAO = new EmployeeDAO(); //we need this object to use methods from EmployeeDAO
-	EmployeeService es = new EmployeeService();
+	EmployeeService es = new EmployeeService(); //we need this object to use methods from EmployeeService
+	RoleService rs = new RoleService();
 	
 	//All of the menu display options and control flow are contained within this method
 	public void displayMenu() {
@@ -33,6 +34,7 @@ public class Menu {
 			System.out.println("hi -> get greeted");
 			System.out.println("employees -> show all employees");
 			System.out.println("employeesById -> get employees with a certain ID");
+			System.out.println("employeesByTitle -> get employees of a certain title");
 			System.out.println("add -> add a new employee");
 			System.out.println("exit -> exit the application");
 			
@@ -52,7 +54,7 @@ public class Menu {
 			case "employees" :{
 				
 				//get the List of employees from the repository layer
-				List<Employee> employees = eDAO.getEmployees();
+				List<Employee> employees = es.getEmployees();
 				
 				//enhanced for loop to print out the Employees one by one
 				for (Employee e : employees) {
@@ -63,9 +65,37 @@ public class Menu {
 			}
 			
 			case "employeesById" :{
-				System.out.println("functionality tbd");
+				System.out.println("What employee id would you like to search for?");
+				
+				int idInput = scan.nextInt(); //get user's input for id
+				scan.nextLine(); //we still need nextLine so that we can move to the next line for more input
+				
+				//what if the user inputs a String? program crashes
+				//up to you to polish your project a bit and add some foolproofing mechanisms
+				
+				List<Employee> employees = es.getEmployeeById(idInput);
+				
+				for(Employee emp : employees) {
+					System.out.println(emp);
+				}
+				
 				break;
 			}
+			
+			case "employeebytitle": {
+				
+			System.out.println("Enter Employee Role to Search: (Case Sensitive! e.g. \"Fry Cook\")");
+			String roleInput = scan.nextLine(); //get user's input for Role to search by
+			
+			List<Employee> employees = es.getEmployeesByRoleTitle(roleInput); //get the List of Employees from the dao
+			
+			for(Employee e : employees)
+			{
+				System.out.println(e); //print them out one by one via the enhanced for loop
+			}
+			break;				
+			
+		}
 			
 			case "add" : {
 				
@@ -88,8 +118,21 @@ public class Menu {
 				//Put the new Employee into the addEmployee() method in the EmployeeService Class
 				es.addEmployee(newEmployee);
 				
+				break;
 			}
 				
+				case "updateSalary": {
+				
+				System.out.println("Enter Role Title to change");
+				String titleInput = scan.nextLine();
+				
+				System.out.println("Enter a new Salary for this Role");
+				int salaryInput = scan.nextInt();
+				scan.nextLine();
+				
+				rs.updateSalary(titleInput, salaryInput);
+				break;
+			}
 			
 			case "exit": {
 				displayMenu = false;

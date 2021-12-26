@@ -66,6 +66,55 @@ public class EmployeeDAO {
 		
 	}
 	
+	//Bit more complicated query - using PARAMETERS to SELECT records WHERE employee_id = ?
+	public List<Employee> getEmployeeById(int id) {
+		
+		try(Connection conn = ConnectionFactory.getConnection()) {
+			
+			ResultSet rs = null;
+			
+			String sql = "select * from employees where employee_id = ?";
+			
+			//when we need parameters we need to use a PREPARED Statement, as opposed to a Statement (seen above)
+			PreparedStatement ps = conn.prepareStatement(sql); //prepareStatment() as opposed to createStatment()
+			
+			//insert the methods argument (int id) as the first (and only) variable in our SQL query
+			ps.setInt(1, id); //the 1 here is referring to the first parameter (?) found in our SQL String
+			
+			rs = ps.executeQuery();
+			
+			//create an empty List to be filled with the data from the database
+			List<Employee> employeeList = new ArrayList<>();
+			
+	//we technically don't need this while loop since we're only getting one result back... see if you can refactor :)
+			while(rs.next()) { //while there are results in the result set...
+				
+			//Use the all args Constructor to create a new Employee object from each returned row...
+			Employee e = new Employee(
+					//we want to use rs.getXYZ for each column in the record
+					rs.getInt("employee_id"),
+					rs.getString("f_name"),
+					rs.getString("l_name"),
+					rs.getInt("role_id")
+					);
+			
+			//and populate the ArrayList with each new Employee object
+			employeeList.add(e); //e is the new Employee object we created above
+			}
+			
+			//when there are no more results in the ResultSet the while loop will break...
+			//return the populated List of Employees
+			return employeeList;
+			
+		} catch (SQLException e) {
+			System.out.println("Something went wrong with your database!"); 
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	
 	public void insertEmployee(Employee newEmployee) { //This is INSERT functionality 
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
@@ -96,6 +145,48 @@ public class EmployeeDAO {
 		}
 		
 	}
+	
+	
+		//Bit more complicated query, uses a join to get more data than usual from two tables 
+		public List<Employee> getEmployeesByRoleTitle(String title) {
+			
+			try(Connection conn = ConnectionFactory.getConnection()){
+				
+				ResultSet rs = null;
+				
+				String sql = "select * from employees inner join roles "
+						     + "on employees.role_id = roles.role_id where roles.role_title = ?";
+				//we need to join employees to roles in order to access the role_title column and return employees
+				//since I want to get employees based on something found in the roles table, we need a join 
+				
+				PreparedStatement ps = conn.prepareStatement(sql);
+
+				ps.setString(1, title); //insert the method's argument as the first (and only) variable in the query
+				
+				rs = ps.executeQuery();	
+				
+				List<Employee> employeeList = new ArrayList<>();
+				
+				while(rs.next()) { //while there are results in the result set...
+					
+					Employee e = new Employee( //create a new Employee Object from each returned row..
+							rs.getInt("employee_id"),
+							rs.getString("f_name"),
+							rs.getString("l_name"),
+							rs.getInt("role_id")
+							);
+					
+					employeeList.add(e); //and populate the ArrayList with each created Role Object
+				}
+				
+				return employeeList; //Finally, return the populated List of Roles.
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
 	
 	
 	
