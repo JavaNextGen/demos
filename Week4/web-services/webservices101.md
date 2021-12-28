@@ -186,7 +186,7 @@
     -   Using all the time
 
 ```json
-{"emp_id":1, "emp_name":"Charles", "emp_status":boolean, "emp_email": "charles.jester@revature.com"}
+{"emp_id":1, "emp_name":"Charles", "emp_status":true, "emp_email": "charles.jester@revature.com"}
 ```
 
 -   Values can of any type
