@@ -45,6 +45,7 @@ public class Launcher {
 				).start(3000);
 		
 		app.get("/employee", ec.getEmployeesHandler);
+		app.post("/employee", ec.insertEmployeeHandler);
 	}
 
 }

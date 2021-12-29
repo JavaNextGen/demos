@@ -39,4 +39,26 @@ public class EmployeeController {
 		}
 	};
 	
+	public Handler insertEmployeeHandler = (ctx) -> {
+		
+		if(ctx.req.getSession() != null) {
+			String body = ctx.body();
+			
+			Gson gson = new Gson();
+			
+			Employee employee = gson.fromJson(body, Employee.class);
+			
+			es.addEmployee(employee);
+			
+			ctx.result("Employee was successfully added!");
+			ctx.status(201);
+			
+		} else {
+			ctx.result("Oh no you failed to insert an employee!!!!");
+			ctx.status(404);
+		}
+		
+		
+	};
+	
 }
