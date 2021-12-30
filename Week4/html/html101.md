@@ -99,7 +99,7 @@
 
 ## HTML Doctype Declaration & Root Tags
 
--   <!DOCTYPE html>
+-   \<!DOCTYPE html>
     -   this is at the top of everything html file
     -   Informs the browser what type of document we are displaying
     -   This above syntax actually defiens a HTML5 document
