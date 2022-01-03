@@ -155,12 +155,15 @@ console.log(sum); // return 11
 -   **Arrow** functions
     -   one time use functions that written in one line
     -   the syntax uses =>
-- **Callback function**
-  - are functions that get passed into another function as a parameter
-  - the original function executes the included function
-- **Higher Order Function**
-  - this is any function that utilizes a callback function
-  
+-   **Callback function**
+    -   are functions that get passed into another function as a parameter
+    -   the original function executes the included function
+-   **Higher Order Function**
+    -   this is any function that utilizes a callback function
+-   **Closures**
+    -   this an old way of acheiving encapsulation in JS
+    -   It's a nested function that can access the variables and arguments of it's outer function but can no longer change their default value
+
 ```javascript
 (var1) => {
 	console.log(var1);
@@ -177,10 +180,34 @@ function varFunc() {
 varFunc();
 
 //Functional programming tidbit
-someArray.map(a=>{console.log(a)}) // return all elements in an array to the console
+someArray.map((a) => {
+	console.log(a);
+}); // return all elements in an array to the console
 
-someArray.map(varFunc()); // print out a bunch of hellos
+someArray.map(varFunc); // print out a bunch of hellos, do not need to invoke function
 
+// Closures
+
+function myFunc() {
+	let counter = 0;
+
+	function counterAdd() {
+		counter++;
+		console.log(counter);
+	}
+
+	return counterAdd();
+}
+
+// These two variables will have their counter be separate
+const charles = myFunc();
+charles.counterAdd(); // return 1
+
+const patrick = myFunc();
+patrick.counterAdd(); // return 1
+patrick.counterAdd(); // return 2
+patrick.counterAdd(); // return 3
+patrick.counterAdd(); // return 4
 ```
 
 ## Scope
@@ -193,6 +220,8 @@ someArray.map(varFunc()); // print out a bunch of hellos
     -   var
 -   Block Scope
     -   only available within the block
+        -   only available within the curly braces
+        -   can declare variables multiple times if they are in separate curly braces
     -   let or const
         -   **let**
             -   this variable is the new & preferred declaration for MUTABLE variables
@@ -206,26 +235,43 @@ someArray.map(varFunc()); // print out a bunch of hellos
 ```javascript
 x = 10; // global scope, PLEASE DONT USE THIS
 
-var p = 3; // function scope, not used as much anymore
+var p = 3; // used for function scope, not used as much anymore
 
 let i = 0;
 const b = "Hi";
 
-function sayHello()
+function sayHello() {
+	var greeting = "Hello"; // function scope variable
+	console.log(greeting);
+}
+
+console.log(greeting); // would result in error bc greeting never declared outside of function scope
+
+if (1 > 2) {
+	const value = true;
+	function hi() {
+		const greeting = "hello";
+	}
+
+	console.log(greeting); // will result in error bc greeting is declare in function not block scope
+	console.log(value);
+} else {
+	const value = false;
+	return value;
+}
 ```
 
 ## Objects
 
-- Objects are just a collection of key-value pairs
-  - Together a key-value pair is known as a proptery
-- Objects do not need to be created from a class. Classes didn't exist in JS until ECMAScript6.
-- Objects are ALWAYS mutable
-  - always add, edit, remove
-- **Object Literal** is the most common way to create an object.
+-   Objects are just a collection of key-value pairs
+    -   Together a key-value pair is known as a proptery
+-   Objects do not need to be created from a class. Classes didn't exist in JS until ECMAScript6.
+-   Objects are ALWAYS mutable
+    -   always add, edit, remove
+-   **Object Literal** is the most common way to create an object.
 
 ```javascript
-
-const dog = {name:"Rover", owner:"Charles", color:"red"} // object lieral
+const dog = { name: "Rover", owner: "Charles", color: "red" }; // object lieral
 
 // To access these values, used Dot or Bracket Notation
 
@@ -233,61 +279,110 @@ const dog = {name:"Rover", owner:"Charles", color:"red"} // object lieral
 dog.name; // is equal to Rover
 
 // Bracket Notation
-dog["name"] // also equals Rover
+dog["name"]; // also equals Rover
 
 // Specific enhanced for loop syntax
 // for-in loop iterates over
 
-for(const key in dog){
-    console.log(dog[key]); // print every value for every key
+for (const key in dog) {
+	console.log(dog[key]); // print every value for every key
 }
-
 ```
 
-- **Enhanced Object Literal**
-  - Alternate syntax for objects
+-   **Enhanced Object Literal**
+    -   Alternate syntax for objects
 
 ```javascript
-
 const dog = {
-    name: "Rover",
-    bark() {
-        console.log("BORK");
-    }
-}
-
-
+	name: "Rover",
+	bark() {
+		console.log("BORK");
+	}
+};
 ```
 
-## Arrays 
+## Arrays
 
-- Arrays in JS are used to store many values
-  - arrays contain indices
-- CAN STORE ANY DATA TYPE
-- AUTOMATICALLY resize themselves
+-   Arrays in JS are used to store many values
+    -   arrays contain indices
+-   CAN STORE ANY DATA TYPE
+-   AUTOMATICALLY resize themselves
 
 ```javascript
+const stuff = [10, true, null, "hello", { fname: "Charles" }];
 
-const stuff = [10, true, null, "hello", {fname: "Charles"}]
-
-for(let i = 0; i < stuff.length; i++){
-    console.log(stuff[i]);
+for (let i = 0; i < stuff.length; i++) {
+	console.log(stuff[i]);
 }
 
 // Enhanced for loop for arrays
 // for-of loop
 
-for(const item of stuff){
-    console.log(item);
+for (const item of stuff) {
+	console.log(item);
 }
 ```
 
 ### Array Methods
-- Array has built in methods for functional programming
-- 4 major ones that you should know
-  - push(element) - adding another element
-  - pop() - removing the last element in array and return that element
-  - filter(callback function)
-    - filter out any results that don't match the callback function
-  - map(callback function)
-    - apply some function to all elements in the array
+
+-   Array has built in methods for functional programming
+-   4 major ones that you should know
+    -   push(element) - adding another element
+    -   pop() - removing the last element in array and return that element
+    -   filter(callback function)
+        -   filter out any results that don't match the callback function
+    -   map(callback function)
+        -   apply some function to all elements in the array
+
+## Hoisting
+
+-   Hoisting is a default JS mechanism where variables and function declarations are move to the top of their scope before code execution
+    -   **Note** that variable declarations are hoisted **but** not the assignment
+    -   all of your varaibles are undefined until that assign happens in the script
+-   Variables declared with let and const CANNOT be hoisted.
+-   JS uses a two pass system when executing the code
+    -   finds variables and functions and makes default values for them.
+    -   functions can be made after their called
+
+```javascript
+// Completely fine and acceptable JS
+var num;
+num = 10;
+
+console.log(num); // return 10
+
+console.log(num + num2); // return of NaN, num2 is considered undefined because the declaration was hoisted to the top of the script
+
+var num2 = 7;
+
+// THIS IS WHY LET AND CONST ARE SO IMPORTANT
+let num; // this will prevent hoisting, will error
+num = 10;
+
+console.log(num); // return 10
+
+console.log(num + num2); // return of NaN, num2 is considered undefined because the declaration was hoisted to the top of the script
+
+const num2 = 7; //prevents hoisting, will error out
+```
+
+## Strict mode
+
+-   declaring "use strict" at the top of your JavaScript
+    -   means that you will **_NOT_** allow the following:
+        -   the use of undefined variables
+        -   any keywords as variables or function names
+        -   some of the other quirks will be restricted
+            -   hoisting still works with use strict be mindful
+        -   JS will just error out if any of the above occurs in your code.
+-   Implemented in ES6
+-   Declared at the global, typically the first line of your script
+    -   can also use this within function scope;
+-   Don't always use because you can use JS quirks to your advantage.
+
+## NodeJS
+
+-   JS used to ONLY be runable in a webpage
+    -   i.e. used for scripts in html
+-   NodeJS is a runtime environment for JavaScript
+    -   this allows us to run JS code outside of a webpage (or html file).
