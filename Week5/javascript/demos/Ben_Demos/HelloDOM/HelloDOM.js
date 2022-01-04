@@ -21,8 +21,9 @@ let myButton = document.getElementById("b1") //this will get our button (which h
 //giving the button functionality
 myButton.onclick = domFunc //this will execute the function called domFunc below
 
-
-
+//using eventListeners to handle events on my h3 element
+document.getElementById("header1").addEventListener("mouseover", hoverFunc)
+document.getElementById("header1").addEventListener("mouseleave", releaseFunc)
 
 
 function domFunc() {
@@ -32,7 +33,12 @@ function domFunc() {
     //textContent is my favorite way to change the text content of an element
 }
 
+function hoverFunc(){
+    console.log("hoverFunc is running!");
+    document.getElementById("header1").textContent = "DON'T TOUCH MEEEE"
+}
 
-
-
-
+function releaseFunc() {
+    console.log("releaseFunc is running!")
+    document.getElementById("header1").textContent = "why did you leave me :("
+}
