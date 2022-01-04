@@ -13,6 +13,26 @@ console.log(firstDiv); //the div's contents get printed out
 //There is an actual style object that you can set parameters of for every element.
 firstDiv.setAttribute("style", "background-color:pink;");
 
-
 console.log("==========================(Events)")
+
+//Let's assign a variable to our button
+let myButton = document.getElementById("b1") //this will get our button (which has an id == b1)
+
+//giving the button functionality
+myButton.onclick = domFunc //this will execute the function called domFunc below
+
+
+
+
+
+function domFunc() {
+    console.log("domFunc is running");
+    document.getElementById("b1").textContent = "Thanks for the click!"; 
+    document.getElementById("p3").textContent = "Now I have content!"
+    //textContent is my favorite way to change the text content of an element
+}
+
+
+
+
 
