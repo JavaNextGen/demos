@@ -63,3 +63,5 @@ let namePayton = HelloName("Payton"); //this just causes HelloName to run, with 
 //namePayton(); //not a function! it's not recognized by the compiler
 
 console.log("============================(Scopes)")
+
+//BEN will put in some scopes stuff, yell at him if he hasn't and it matters to you
