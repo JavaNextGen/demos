@@ -24,7 +24,11 @@ myButton.onclick = domFunc //this will execute the function called domFunc below
 //using eventListeners to handle events on my h3 element
 document.getElementById("header1").addEventListener("mouseover", hoverFunc)
 document.getElementById("header1").addEventListener("mouseleave", releaseFunc)
+//so when you mouse over header1, hoverFunc() executes
+//then when you leave header1, releaseFunc() executes
 
+//we could have also assigned the results of this DOM selection to variables... 
+//but I wanted to show eventListener syntax
 
 function domFunc() {
     console.log("domFunc is running");
