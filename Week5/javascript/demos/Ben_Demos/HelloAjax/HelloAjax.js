@@ -60,7 +60,7 @@ function renderHTML(data){
     }
 
     //pokepic - need to set the previously empty src attribute
-    pokepic.setAttribute("src", data.sprites.front_shiny);
+    pokepic.setAttribute("src", data.sprites.front_default);
 
     //we are getting ALL OF THIS DATA from the JSON gathered from the PokeAPI.
 
