@@ -58,7 +58,7 @@ public class ConnectionFactory {
     	//your postgres username (should just be postgres)
     	String username = "postgres";
     	//your postgres password (hopefully just "password")
-    	String password = "password"; //don't be like me
+    	String password = "Sparky2014!!"; //don't be like me
     
     	//This is what actually returns our Connection object. (Note how this method has a return type of Connection)
     	return DriverManager.getConnection(url, username, password);
