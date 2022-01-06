@@ -9,8 +9,14 @@
 			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 			crossorigin="anonymous"
 		/>
+		<!--bootstrap classes cheatsheet-->
+		<!--https://www.w3schools.com/bootstrap/bootstrap_ref_css_buttons.asp-->
+
 	</head>
 	<body>
+		<!--We need a div called container to hold all of our bootstrap styling-->
+		<div class="container">
+
 		<h3>Welcome to the Krusty Krab!</h3>
 
 		<div>
@@ -27,8 +33,8 @@
 			<br />
 			<br />
 			<!-- We want to display(table) all of the employee information when it comes back from the server -->
-			<div>
-				<table>
+			<div id="table-row" class="row">
+				<table id="krustyTable" class="table table-hover table-bordered table-dark">
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -38,20 +44,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<!-- For Example of single entry table row structure -->
-						<!-- <tr> -->
-						<!-- <td>209213</td> -->
-						<!-- <td>Charles</td> -->
-						<!-- <td>Manson</td> -->
-						<!-- <td>Sr. Dev</td> -->
-						<!-- </tr> -->
-						<!-- BIG PICUTURE HAPPENS HERE -->
-						<!-- BIG PICUTURE HAPPENS HERE -->
-
-						<!-- We will be leaving blank to be filled in with our JS scrip when the data comes-->
-
-						<!-- BIG PICUTURE HAPPENS HERE -->
-						<!-- BIG PICUTURE HAPPENS HERE -->
+						<!--We'll leave this blank: it will be filled by our JS when data comes in-->
 					</tbody>
 				</table>
 			</div>
@@ -59,9 +52,11 @@
 			<br />
 			<br />
 
-			<button>Show Employees</button>
+			<button id="getEmployeeButton" class="btn btn-primary">Show Employees</button>
 		</div>
 
-		<script src="someJSfile.js"></script>
+	</div>
+
+		<script src="krustyKrab.js"></script>
 	</body>
 </html>
