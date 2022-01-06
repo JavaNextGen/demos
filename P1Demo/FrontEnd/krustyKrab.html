@@ -19,15 +19,15 @@
 
 		<h3>Welcome to the Krusty Krab!</h3>
 
-		<div>
-			<!-- Login Starts -->
 			<div>
+			<!-- Login Starts -->
+			<div id="loginRow" class="row">
 				<h3>Please Enter your Login Information!</h3>
-				<input placeholder="Username" />
+				<input id="username" placeholder="Username"/>
 				<!-- default type is text -->
 				<!-- <input type="text"> -->
-				<input type="password" placeholder="Password" />
-				<button>Login</button>
+				<input id="password" type="password" placeholder="Password" />
+				<button id="loginButton" class="btn">Login</button>
 			</div>
 
 			<br />
@@ -43,7 +43,7 @@
 							<th>Role</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="employeeBody">
 						<!--We'll leave this blank: it will be filled by our JS when data comes in-->
 					</tbody>
 				</table>

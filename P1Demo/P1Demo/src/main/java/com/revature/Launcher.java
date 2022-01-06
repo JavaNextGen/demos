@@ -35,17 +35,21 @@ public class Launcher {
 		// menu.displayMenu();
 		
 		
-		//this is our entire main method (until we learn Javalin in week 4)
-		
-		//all of the complicated menu logic is hidden in the Menu class... this is power of abstraction!!!!!
+		//this^ was our entire main method, but now we're using Javalin below-------------------------
+
 		Javalin app = Javalin.create(
 					config -> {
 						config.enableCorsForAllOrigins(); // allows the server to process JS requests from anywhere
 					}
 				).start(3000);
 		
+		
 		app.get("/employee", ec.getEmployeesHandler);
+		
+		
 		app.post("/employee", ec.insertEmployeeHandler);
+		
+		
 	}
 
 }
