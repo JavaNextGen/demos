@@ -64,3 +64,11 @@ console.log(rocky.name); //just to make sure that change actually occurred
 rocky.whine(); //we can also access the inherited whine function of the dog class!
 
 console.log(rocky); //print him out just to show
+
+
+console.log("================(trying to use setInterval)")
+
+setInterval(dog1.bark, 3000);
+
+//now this popup will occur every 3 seconds... how fun
+
