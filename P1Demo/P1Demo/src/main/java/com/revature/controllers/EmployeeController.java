@@ -18,7 +18,7 @@ public class EmployeeController {
 	// ORR sending data to the service layer (will probably return some response that it was successful)
 	
 	public Handler getEmployeesHandler = (ctx) -> {
-		if(ctx.req.getSession() != null) { //if the session exist
+		if(ctx.req.getSession(false) != null) { //if the session exists
 			
 			List<Employee> allEmployees = es.getEmployees();
 			
@@ -34,14 +34,14 @@ public class EmployeeController {
 			
 
 		} else {
-			ctx.result("Oh no you failed to get the employees!!!!");
+			ctx.result("Not logged in - can't access employees!");
 			ctx.status(404);
 		}
 	};
 	
 	public Handler insertEmployeeHandler = (ctx) -> {
 		
-		if(ctx.req.getSession() != null) {
+		if(ctx.req.getSession(false) != null) {
 			String body = ctx.body();
 			
 			Gson gson = new Gson();
@@ -54,7 +54,7 @@ public class EmployeeController {
 			ctx.status(201);
 			
 		} else {
-			ctx.result("Oh no you failed to insert an employee!!!!");
+			ctx.result("Not logged in - can't insert employees!");
 			ctx.status(404);
 		}
 		

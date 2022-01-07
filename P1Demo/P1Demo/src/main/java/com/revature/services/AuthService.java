@@ -1,5 +1,7 @@
 package com.revature.services;
 
+//probably would need to import some DAO class if we weren't hardcoding
+
 public class AuthService {
 
 	//hardcoding username/password - which you WON'T do in P1
@@ -12,6 +14,8 @@ public class AuthService {
 	
 	public boolean login(String username, String password) {
 		
+		//this is hardcoding - telling Java exactly what values make for a valid login
+		//in reality, you'll check the database for a username/password to see if a record exists
 		if(username.equals("user") && password.equals("password")) {
 			
 			return true; //true indicates successful login

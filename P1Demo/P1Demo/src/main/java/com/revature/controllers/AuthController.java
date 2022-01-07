@@ -2,10 +2,13 @@ package com.revature.controllers;
 
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
+import com.revature.services.AuthService;
 
 import io.javalin.http.Handler;
 
 public class AuthController {
+	
+	AuthService as = new AuthService();
 
 	public Handler loginHandler = (ctx) -> {
 		
@@ -19,7 +22,24 @@ public class AuthController {
 		
 		
 		//control flow to determine what happens in the event of successful/unsuccessful login
-		//if()
+		//invoke the login() method of the AuthService using the username and password from the LoginDTo
+		if(as.login(LDTO.getUsername(), LDTO.getPassword())) {
+			
+			//create a user session so that they can access the applications other functionalities
+			ctx.req.getSession(); //req is a "Request Object", we establish sessions through it
+			
+			//return a successful status code 
+			ctx.status(202); //202 - accepted. (but you could use any 200 level status code)
+			
+			//send a message relaying the success
+			ctx.result("Login Success!");
+			
+		} else {
+			
+			ctx.status(401); //"unauthorized" status code
+			ctx.result("Login Failed! :(");
+			
+		}
 		
 	};
 
