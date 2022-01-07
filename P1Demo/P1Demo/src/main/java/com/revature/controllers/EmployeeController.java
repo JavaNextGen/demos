@@ -35,7 +35,7 @@ public class EmployeeController {
 
 		} else {
 			ctx.result("Not logged in - can't access employees!");
-			ctx.status(404);
+			ctx.status(401);
 		}
 	};
 	

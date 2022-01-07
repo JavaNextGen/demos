@@ -22,7 +22,7 @@ public class AuthController {
 		
 		
 		//control flow to determine what happens in the event of successful/unsuccessful login
-		//invoke the login() method of the AuthService using the username and password from the LoginDTo
+		//invoke the login() method of the AuthService using the username and password from the LoginDTO
 		if(as.login(LDTO.getUsername(), LDTO.getPassword())) {
 			
 			//create a user session so that they can access the applications other functionalities
