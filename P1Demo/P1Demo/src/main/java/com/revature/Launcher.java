@@ -3,6 +3,7 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
 import com.revature.models.Menu;
 import com.revature.util.ConnectionFactory;
@@ -13,7 +14,10 @@ public class Launcher {
 
 	public static void main(String[] args) {
 		
+		//instantiating controller objects to use their method
 		EmployeeController ec = new EmployeeController();
+		AuthController ac = new AuthController();
+		
 		
 		//Testing Database Connectivity - just testing whether our Connection (from ConnectionFactory) is successful
 		try(Connection conn = ConnectionFactory.getConnection()){
@@ -43,12 +47,16 @@ public class Launcher {
 					}
 				).start(3000);
 		
+		//these are your Javalin endpoint handlers, which will take in requests and send them where they need to go
 		
+		//handler ending in /employee that takes GET requests - will return all Employees
 		app.get("/employee", ec.getEmployeesHandler);
 		
-		
+		//handler ending in /employee that takes POST requests -  will let us insert employees
 		app.post("/employee", ec.insertEmployeeHandler);
 		
+		//handler ending in /login to send and inputted username/password to be validated
+		app.post("/login", ac.loginHandler);
 		
 	}
 

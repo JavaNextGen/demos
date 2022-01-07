@@ -12,7 +12,7 @@ public class EmployeeController {
 	
 	EmployeeService es = new EmployeeService();
 
-	// *****This layer is where we'll parse our JSON into Java objects and vice vera*****
+	// *****This layer is where we'll parse our JSON into Java objects and vice versa*****
 	// Sits between the Javalin Front Controller and the Service Layer
 	// We'll either be getting data from the service layer (which is our DAO)
 	// ORR sending data to the service layer (will probably return some response that it was successful)
