@@ -41,7 +41,7 @@ public class EmployeeController {
 	
 	public Handler insertEmployeeHandler = (ctx) -> {
 		
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			String body = ctx.body();
 			
 			Gson gson = new Gson();

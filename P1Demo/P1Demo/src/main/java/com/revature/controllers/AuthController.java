@@ -1,5 +1,9 @@
 package com.revature.controllers;
 
+import javax.servlet.http.HttpSession;
+
+import org.eclipse.jetty.server.session.Session;
+
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
 import com.revature.services.AuthService;
@@ -27,6 +31,10 @@ public class AuthController {
 			
 			//create a user session so that they can access the applications other functionalities
 			ctx.req.getSession(); //req is a "Request Object", we establish sessions through it
+			
+			ctx.res.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None; Secure");
+			//this was supposed to let us do further requests after establishing a session... 
+			//but Ben didn't figure it out in time
 			
 			//return a successful status code 
 			ctx.status(202); //202 - accepted. (but you could use any 200 level status code)

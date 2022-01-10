@@ -11,7 +11,7 @@ async function getEmployees() {
 
     //we will send a fetch request to get our employee data
     //by default, fetch requests send GET requests
-    let response = await fetch(url + "employee");
+    let response = await fetch(url + "employee", {credentials: "include"});
 
     //logging the response in the console just to see the response object
     console.log(response);
