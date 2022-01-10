@@ -18,7 +18,7 @@ public class EmployeeController {
 	// ORR sending data to the service layer (will probably return some response that it was successful)
 	
 	public Handler getEmployeesHandler = (ctx) -> {
-		if(ctx.req.getSession(false) != null) { //if the session exists
+		if(ctx.req.getSession(true) != null) { //if the session exists
 			
 			List<Employee> allEmployees = es.getEmployees();
 			
