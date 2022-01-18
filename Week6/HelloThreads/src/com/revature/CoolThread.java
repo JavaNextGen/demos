@@ -18,11 +18,11 @@ public class CoolThread extends Thread {
 			System.out.println(sb); //might delete
 			
 			//This is so that we can see the Thread working...
-			try {
-				Thread.sleep(500); //Threads will wait 500 milliseconds before running
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+//			try {
+//				Thread.sleep(500); //Threads will wait 500 milliseconds before running
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
 			
 		}
 		
