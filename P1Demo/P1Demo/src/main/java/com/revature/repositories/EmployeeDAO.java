@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class EmployeeDAO {
 				employeeList.add(e); //e is the new Employee object we created above
 		
 			}
-		
+			
 			//when there are no more results in rs, the while loop will break
 			//then, return the populated ArrayList of Employees
 			return employeeList;
