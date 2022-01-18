@@ -61,7 +61,7 @@ public class Launcher {
 			
 		}
 		
-
+		
 		log.info("/User Exited Program/");
 		
 		

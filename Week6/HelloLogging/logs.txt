@@ -10,4 +10,3 @@
 2022-01-18 16:31:32 INFO  Launcher:50 - /User inputted value of: World Domination/
 2022-01-18 16:31:32 FATAL Launcher:53 - You gonna die baby
 2022-01-18 16:31:32 INFO  Launcher:65 - /User Exited Program/
-2022-01-18 16:35:28 FATAL Launcher:53 - /You gonna die baby/
