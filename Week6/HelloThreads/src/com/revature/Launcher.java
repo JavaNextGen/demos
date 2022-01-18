@@ -24,6 +24,13 @@ public class Launcher {
 		
 		t3.start();
 		
+		try{
+			t3.join(); //join() will throw this Thread to the bottom of the stack (main method)
+			//note how t3 always finishes last!
+		} catch (InterruptedException e) {
+			System.out.println(":)");
+		}
+		
 		CoolThread t4 = new CoolThread();
 		
 		t4.start();
