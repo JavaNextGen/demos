@@ -9,7 +9,7 @@
 
      <!-- JDBC -->
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.connection.password">Sparky2014!!</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=hibernate</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <!-- Hibernate Properties -->
@@ -23,8 +23,8 @@
         <!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
 
         <!-- We will map our classes here -->
-        <mapping class="com.revature.models."/>
-        <mapping class="com.revature.models."/>
+        <mapping class="com.revature.models.Director"/>
+        
 
      </session-factory>
  </hibernate-configuration>
