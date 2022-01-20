@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -30,7 +32,8 @@ public class Launcher {
 		
 		Director d1 = new Director("Quentin", "Tarantino", 1963);
 		Director d2 = new Director("Michael", "Bay", 1965);
-		Director d3 = new Director("Jordan", "Peele", 1979);
+		Director d3 = new Director("Jordan", "Peele"); 
+		//had to create a new constructor to demonstrate with d3 that null values will just be given default values
 		
 		Movie m1 = new Movie("Pulp Fiction", "Action", d1);
 		Movie m2 = new Movie("Transformers", "Action", d2);
@@ -41,10 +44,30 @@ public class Launcher {
 		mDAO.insertMovie(m2);
 		mDAO.insertMovie(m3);
 		
-		
-		
 		//select our Movies from the DB
+		
+		//select all
+		List<Movie> allMovies = mDAO.getAllMovies();
+		
+		for(Movie m : allMovies) {
+			System.out.println(m);
+		}
+		
+		//select by id
+		System.out.println(mDAO.getMovieById(2));
+		
+		//select by Director id
+		System.out.println(mDAO.getMoviesByDirectorId(1));
 
+		//update a movie
+		m1.setTitle("SOMETHING ELSE"); //change the title in Java
+		
+		//mDAO.updateMovieWithHQL(m1); //send the update with the HQL method
+		
+		mDAO.UpdateMovieWithSessionMethod(m1); //send the update with the Session method
+		
+		System.out.println(mDAO.getMovieById(1)); //select the movie to make sure the change went through
+		
 	}
 
 }
