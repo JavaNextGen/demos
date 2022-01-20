@@ -28,7 +28,7 @@ public class Movie {
 	
 	//One to Many (technically many to one) relationship with Director - one Director can have many movies 
 	//We need to make this a foreign key to the Director table
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "director_id") //This is how you establish relationships and foreign keys - 
 									  //the name attribute must equal the name of the id of Director in the DB
 	//@Column(name = "director_id_fk") //gonna see if this works...
