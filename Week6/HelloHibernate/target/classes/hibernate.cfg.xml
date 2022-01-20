@@ -22,8 +22,9 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
 
-        <!-- We will map our classes here -->
+        <!-- We HAVE TO map our classes here in order for them to get picked up by Hibernate-->
         <mapping class="com.revature.models.Director"/>
+        
         
 
      </session-factory>
