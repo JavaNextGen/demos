@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+ <hibernate-configuration>
+     <session-factory>
+
+     <!-- JDBC -->
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">Sparky2014!!</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=hibernate</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <!-- Hibernate Properties -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.default_schema">hibernate</property> <!-- This should be the name of your schema -->
+        <!-- Hibernate console output -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <!-- DDL -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
+		<!-- It will wipe all tables and data, and recreate it -->
+
+        <!-- We HAVE TO map our classes here in order for them to get picked up by Hibernate-->
+        <mapping class="com.revature.models.Director"/>
+        <mapping class="com.revature.models.Movie"/>
+        
+        
+
+     </session-factory>
+ </hibernate-configuration>
