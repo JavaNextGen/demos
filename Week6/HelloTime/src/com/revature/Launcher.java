@@ -31,6 +31,8 @@ public class Launcher {
 		
 		System.out.println("==================================================(Date)");
 		
+		//The date object is a lot more versatile for formatting the dates 
+		
 		Date date = new Date(); //new Date object from java.util
 		
 		System.out.println(date); 
@@ -44,8 +46,8 @@ public class Launcher {
 		System.out.println(formattedDate);
 		
 		
-		//formatting to show the year, month, day, day of the week, and timezone
-		dateFormat = new SimpleDateFormat("MM-dd-yyyy-E-z");
+		//formatting to show the year, month, day, day of the week, timezone, and millisecond
+		dateFormat = new SimpleDateFormat("MM-dd-yyyy-E-z-S");
 		
 		String formattedDate2 = dateFormat.format(date);
 		
