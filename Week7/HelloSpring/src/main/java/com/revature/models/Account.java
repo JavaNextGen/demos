@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 @Component //@Component is the generic annotation for making a Class a Bean, and storing it in the Spring container
 //Remember, the Spring container we will use is ApplicationConetext

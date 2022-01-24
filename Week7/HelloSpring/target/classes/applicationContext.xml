@@ -12,7 +12,9 @@
 <!-- We need the <beans> tag and its configurations in order for this xml to be used for Spring -->
 
 
-
+	<!-- This is the only thing we need in our applicationContext.xml when using annotation-driven bean declaration -->
+  	<context:component-scan base-package="com.revature"></context:component-scan>
+  	<!-- With this one line, the applicationContext.xml knows to scan com.revature for annotations -->
   
 
 	<!-- Below, we are declaring and wiring beans in XML (which we usually don't do - we like @Autowired) -->
