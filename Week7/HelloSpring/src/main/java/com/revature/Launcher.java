@@ -52,7 +52,7 @@ public class Launcher {
 		//Thus, this new User object is the same User object as the previous one. Same with the Account object in it.
 		System.out.println(u2);
 		
-		System.out.println(u); 
+		System.out.println(u); //the values for User u remain the same
 		
 		//We made our User bean prototype scoped (Check the top of the User Class)
 		//BUT NOTICE the Account object associated both Users is the same one. 
