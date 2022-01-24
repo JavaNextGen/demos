@@ -28,6 +28,10 @@ public class User {
 		this.account = account;
 	}
 
+	//We created this constructor in order to accomplish AutoWiring in our Config Class
+	public User(Account accountBean) {
+		this.account = accountBean;
+	}
 
 	@Override
 	public String toString() {
