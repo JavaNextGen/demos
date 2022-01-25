@@ -1,5 +1,7 @@
 package com.revature.repositories;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.Avenger;
@@ -31,8 +33,11 @@ public class AvengerDAO {
 			return null;
 		} else {
 			team[a.getAveId()-1] = a;
+			System.out.println(Arrays.toString(team));
 			return getById(a.getAveId());
 		}
+		
+		
 		
 	}
 
