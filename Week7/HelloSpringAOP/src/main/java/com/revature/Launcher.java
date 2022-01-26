@@ -35,8 +35,17 @@ public class Launcher {
 		
 		System.out.println(a2);
 		
-		//System.out.println("=====================================================(Using fight())");
+		System.out.println("==============================================================(Using fight())");
 		
+		//using the fight() method, once to return successfuly, and once to throw an exception
+		System.out.println(aDAO.fight(a2, "I think he, he dug a burrow?", 1000));
+		
+		//try/catch to catch our arithmetic exception
+		try {
+			System.out.println(aDAO.fight(a2, "I think he, he dug a burrow?", 1));
+		} catch (ArithmeticException e) {
+			System.out.println("EXCEPTION CAUGHT!!!!!");
+		}
 	}
 		
 }

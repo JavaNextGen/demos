@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -37,5 +38,9 @@ public class LoggingAspect {
 		log.info(jp.getTarget() + " invoked " + jp.getSignature() + " and returned " + returnedObject);
 	}
 	
+	@AfterThrowing(pointcut="execution(String fight(..))", throwing="thrownException")
+	public void logFailedFight(JoinPoint jp, Exception thrownException) {
+		log.warn(jp.getTarget() + " invoked " + jp.getSignature() + " and threw " + thrownException);
+	}
 	
 }
