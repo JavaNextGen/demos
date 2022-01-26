@@ -3,6 +3,7 @@ package com.revature.aspects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -26,5 +27,15 @@ public class LoggingAspect {
 		//getTarget() returns the object getting called, and configures our JoinPoint to our specific PointCut
 		//getSignature() gets the method signature as a String
 	}
+	
+	
+	//Remember, a PointCut is where advice WILL be injected. In this case, any method called (fight) that returns a String
+	//the "returning" attribute is simply giving us access to the returned object from the method (A String in this case)
+	//fight(..) means "any method called fight that takes any number of parameters"
+	@AfterReturning(pointcut="execution(String fight(..))", returning = "returnedObject")
+	public void logSuccessfulFight(JoinPoint jp, Object returnedObject) {
+		log.info(jp.getTarget() + " invoked " + jp.getSignature() + " and returned " + returnedObject);
+	}
+	
 	
 }
