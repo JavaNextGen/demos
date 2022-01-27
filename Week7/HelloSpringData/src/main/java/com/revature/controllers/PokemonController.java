@@ -1,7 +1,10 @@
 package com.revature.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,5 +43,13 @@ public class PokemonController {
 		//we use .build() instead of .body() if we don't intend to send data back.
 	}
 	
+	@GetMapping
+	public ResponseEntity<List<Pokemon>> getAllPokemon(){
+		
+		return ResponseEntity.status(200).body(pDAO.findAll());
+		
+		//return ResponseEntity.ok(pDAO.findAll()); //This would also work!! .ok() sets status code to 200
+		
+	}
 	
 }
