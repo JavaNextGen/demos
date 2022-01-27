@@ -6,10 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 //We're using Spring Data JPA, but basic model classes should look just like Hibernate
 
 @Entity
 @Table(name="pokemon")
+@Component
 public class Pokemon {
 
 	@Id

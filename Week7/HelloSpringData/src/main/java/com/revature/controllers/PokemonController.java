@@ -31,11 +31,10 @@ public class PokemonController {
 	//These SHOULD probably call a service layer that's calling the DAO
 		//so .body() would contain a call to the service method that gets the appropriate data from the DAO
 
-
-
-
 	@PostMapping //every POST request ending in /pokemon goes here
 	public ResponseEntity addPokemon(@RequestBody Pokemon p) {
+		System.out.println("Hi, we're in the controller");
+		
 		pDAO.save(p); //the save() method is how we do INSERTS
 		return ResponseEntity.status(201).build();
 		//we use .build() instead of .body() if we don't intend to send data back.
