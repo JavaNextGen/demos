@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,5 +52,15 @@ public class PokemonController {
 		//return ResponseEntity.ok(pDAO.findAll()); //This would also work!! .ok() sets status code to 200
 		
 	}
+	
+	@GetMapping(value = "/id/{id}") //the number given as a URL endpoint will be the parameter in this method, hence @PathVariable
+	public ResponseEntity<Pokemon> findById(@PathVariable int id){
+		Pokemon p = pDAO.findById(id).get();
+		return ResponseEntity.ok(p);
+	}
+	
+	//Ben will do the same thing with getById() instead of findById()
+	
+	//Ben will show a more complicated method on Friday
 	
 }
