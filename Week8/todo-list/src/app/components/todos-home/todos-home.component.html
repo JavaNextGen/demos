@@ -1,11 +1,19 @@
+<div class="nameDiv" [hidden]="nameDivToggle">
+    <label for="myName">What's your name?</label>
+    <!--Two Way Binding to assign the user input to this "name" variable in the TS-->
+    <input type="text" id="myName" [(ngModel)] = "name"/>
+    <button class="button" (click)="submitName()">Submit!</button>
+</div>
 
 <div class="greeterDiv">
     <!--Button to toggle whether the cards are hidden-->
+    <!--Event Binding!! to perform the showTodoList() function after a button click-->
     <button class="button" (click)=showTodoList()>Show Todos!</button>
 </div>
 
 <div class="grid-container">
 
+    <!-- Property Binding!! binding an HTML attribute(property) to a TS variable's value-->
     <div class="todo-card" [hidden]="hiddenToggle">
         <!--String Interpolation!! Taking TS values and putting them in our HTML-->
         <!--We'll be grabbing these values from the todo objects in the todos Array-->

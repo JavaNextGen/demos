@@ -10,6 +10,12 @@ export class TodosHomeComponent implements OnInit {
   //toggles whether the todo list cards are visible
   hiddenToggle:boolean = true;
 
+  //toggles whether the name div is visible
+  nameDivToggle:boolean = false;
+
+  //stores the user inputted name from the greeterDiv
+  name:String ="";
+
   //made 4 todo list objects that we will render onto our webpage
   todo1 = {
     id:1,
@@ -41,6 +47,10 @@ export class TodosHomeComponent implements OnInit {
 
   showTodoList() {
     this.hiddenToggle = !this.hiddenToggle; //setting the boolean to the opposite of current value
+  }
+
+  submitName(){
+    this.nameDivToggle = true;
   }
 
   constructor() { }
