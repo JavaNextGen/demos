@@ -7,6 +7,7 @@
 .grid-container {
     margin-top: 3em;
     display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 5em;
 }
 
@@ -18,6 +19,7 @@
     padding: 2em;
     width: 15em;
     background-color: burlywood;
+    margin-left: 2em;
 }
 
 .greeterDiv{
