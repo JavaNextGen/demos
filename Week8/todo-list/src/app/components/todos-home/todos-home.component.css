@@ -1,0 +1,30 @@
+.button {
+    background-color: burlywood;
+    color:black;
+    border-radius: .5em;
+}
+
+.grid-container {
+    margin-top: 3em;
+    display: inline-grid;
+    gap: 5em;
+}
+
+.todo-card{
+    text-align: center;
+    border-radius: 1em;
+    border-style: groove;
+    border-width: .5em;
+    padding: 2em;
+    width: 15em;
+    background-color: burlywood;
+}
+
+.greeterDiv{
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

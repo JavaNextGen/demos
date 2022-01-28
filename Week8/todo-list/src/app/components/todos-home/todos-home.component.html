@@ -1,0 +1,21 @@
+
+<div class="greeterDiv">
+    <!--Button to toggle whether the cards are hidden-->
+    <button class="button" (click)=showTodoList()>Show Todos!</button>
+</div>
+
+<div class="grid-container">
+
+    <div class="todo-card" [hidden]="hiddenToggle">
+        <!--String Interpolation!! Taking TS values and putting them in our HTML-->
+        <!--We'll be grabbing these values from the todo objects in the todos Array-->
+        <h2>Todo #{{todosArray[0].id}}</h2>
+        <p>Task: {{todosArray[0].content}}</p>
+        <p>Status: {{todosArray[0].status}}</p>
+    </div>
+
+    <!--We will copy this three times shortly-->
+
+</div>
+
+
