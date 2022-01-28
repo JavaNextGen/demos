@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnotherComponentComponent } from './components/another-component/another-component.component';
+import { NewComponentComponent } from './components/new-component/new-component.component';
 
 //The more dynamic way to display components is through ROUTING in the Routes array.
 //We use routing to move components in and out of the webpage , depending on the URL
