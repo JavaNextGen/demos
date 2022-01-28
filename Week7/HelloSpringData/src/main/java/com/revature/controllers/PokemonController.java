@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,9 @@ public class PokemonController {
 	//I just need to autowire the DAO class to this class
 	//Like in the last MVC demo, I'm skipping the service layer just for time, but you should still use services
 	private PokemonDAO pDAO;
+	
+	private RestTemplate restTemplate = new RestTemplate(); //RestTemplate object to send HTTP requests... from Java wow!
+	//With RestTemplate, we can send and receive JSON from our Java.
 	
 	//so now, PokemonController will automagically have a PokemonDAO associated with it
 	@Autowired
@@ -64,10 +68,37 @@ public class PokemonController {
 	//getById() is deprecated!! Don't ask questions, findById is the truth.
 	
 
-	//Ben will show a more complicated method on Friday
+	//This method will call the custom DAO method we created
+	@GetMapping(value = "/name/{name}")
+	public ResponseEntity<List<Pokemon>> findByName(@PathVariable String name){
+		
+		//Remember - an Optional may or may not have the generic, or it may be null
+		Optional<List<Pokemon>> pokemon = pDAO.findByName(name);
+		
+		List<Pokemon> pokeList = null; //empty List to potentially be populated 
+		
+		if(pokemon.isPresent()) { //if the Optional has content...
+			pokeList = pokemon.get(); //this is how you get the contents of an Optional
+			return ResponseEntity.ok(pokeList);
+		} else {
+			return ResponseEntity.noContent().build(); //else return nothing but a no content code
+		}
+	}
 	
-	//RestTemplate reminder
-	
-
+	//using RestTemplate 
+	@GetMapping(value = "/find/{name}")
+	public ResponseEntity<Pokemon> getPokemonFromApi(@PathVariable String name){
+		
+		//getForObject() well send a GET request to the specified URL, for a specified object type
+		//So here, we're sending a GET request to the pokeapi, to get a certain pokemon
+		Pokemon externalPoke = this.restTemplate.getForObject("https://pokeapi.co/api/v2/pokemon/"+name, Pokemon.class);
+		
+		if(externalPoke == null) {
+			return ResponseEntity.noContent().build(); //send nothing back if our Pokemon is null
+		}
+		
+		return ResponseEntity.ok(externalPoke);
+		
+	}
 	
 }
