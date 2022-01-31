@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosDateComponent implements OnInit {
 
+  myDate:Date = new Date();
+
   constructor() { }
 
   ngOnInit(): void {
