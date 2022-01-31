@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosBannerComponent } from './components/todos-banner/todos-banner.component';
 import { TodosHomeComponent } from './components/todos-home/todos-home.component';
+import { TodosDateComponent } from './components/todos-date/todos-date.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosBannerComponent,
-    TodosHomeComponent
+    TodosHomeComponent,
+    TodosDateComponent
   ],
   imports: [
     BrowserModule,

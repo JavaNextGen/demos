@@ -53,6 +53,11 @@ export class TodosHomeComponent implements OnInit {
     this.nameDivToggle = true;
   }
 
+  completeTask(id:number){
+    this.todosArray[id - 1].status = "Complete"
+    //-1 because of zero indexing. Otherwise completing task 1 will complete task 2. no good.
+  }
+
   constructor() { }
 
   ngOnInit(): void {
