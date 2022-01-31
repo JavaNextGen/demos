@@ -1,0 +1,10 @@
+h1 {
+    text-shadow: saddlebrown;
+    
+    border-style: double;
+    background-color: burlywood;
+    border: 5px double white;
+    position: absolute;
+    top: 40%;
+    left: 35%
+}

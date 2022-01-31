@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosDateComponent implements OnInit {
 
-  myDate:Date = new Date();
+  //myDate:Date = new Date(); 
+  //This gave us way too much information
+
+  //We found the formatDate() function which returns a String with the date format you like
+  myDate:string = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
   constructor() { }
 
