@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PokedexComponent
+    PokedexComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
