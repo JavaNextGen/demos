@@ -25,6 +25,10 @@ export class PokemonService {
   //We now have to inject this service in the pokedex component to use this function
 
   //hypothetical function that would let us make POST requests------
+  sendPokemonToApi(pokemon:Pokemon){
+    this.http.post("URL you're sending data to", pokemon)
+  }
 
+  //The URLs you'll be calling to are the appropriate Javalin or SpringMVC handlers in your server
 
 }
