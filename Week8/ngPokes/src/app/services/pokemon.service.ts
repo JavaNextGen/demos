@@ -24,4 +24,7 @@ export class PokemonService {
   //This^ function returns an observable. 
   //We now have to inject this service in the pokedex component to use this function
 
+  //hypothetical function that would let us make POST requests------
+
+
 }
