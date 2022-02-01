@@ -20,8 +20,11 @@
             <tr>
                 <!--We will be string interpolating the values of the Pokemon object-->
                 <td>{{pokemon.name}}</td>
-                <td>{{pokemon.types[0].type.name}}</td>
-                <td>blah</td>
+                <td>
+                    {{pokemon.types[0].type.name}}   
+                    <span *ngIf="pokemon.types.length>1">{{pokemon.types[1].type.name}}</span>
+                </td>
+                <td><img src="{{pokemon.sprites.front_default}}"/></td>
             </tr>
         </tbody>
     </table>
