@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule //remember, we need this one to use two-way binding
+    FormsModule, //remember, we need this one to use two-way binding
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
