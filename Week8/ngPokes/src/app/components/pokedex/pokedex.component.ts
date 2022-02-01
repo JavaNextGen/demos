@@ -1,3 +1,4 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -28,8 +29,12 @@ export class PokedexComponent implements OnInit {
 
       //get the data out of the observable that we subscribed to, and put it into a Pokemon object
       (data:any) => {
-        //assign it to our Pokemon variable above
-        this.pokemon = data;
+        let response:String = data.status //gets the status code 
+
+        console.log(response);
+
+        //assign the body of the GET request (which has pokemon data) to our Pokemon variable above
+        this.pokemon = data.body;
         //we may have to do something with sprites
         console.log(this.pokemon) //will be helpful for debugs
       },
