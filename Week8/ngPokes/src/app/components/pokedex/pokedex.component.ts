@@ -50,6 +50,8 @@ export class PokedexComponent implements OnInit {
         //call the changeMessage() function from the service, which changes the message on the welcome page
         this.ps.changeMessage("Number of Pokemon Found: " + this.ps.counter)
 
+        this.ps.pokemon = data.body;
+
       },
       () => { //in case of errors, set pokemon to null since we didn't get anything back
         this.pokemon = null;

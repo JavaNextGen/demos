@@ -14,6 +14,9 @@ export class PokemonService {
   //counter variable that we will display on the welcome page (will be incremented in pokedex.ts)
   counter:number = 0;
 
+  //pokemon object to get displayed on welcome page
+  pokemon:any = null;
+
   //This is a BehaviorSubject object, it contains a String that we can change dynamically
   public messageSource = new BehaviorSubject("Default String from Service");
   //turn the BehvaiorSubject into an observable, so other components can subscribe to it

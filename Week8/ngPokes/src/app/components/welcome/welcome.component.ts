@@ -15,6 +15,9 @@ export class WelcomeComponent implements OnInit {
   //this object will let us subscribe to observables
   subscription: Subscription = new Subscription();
 
+  //null pokemon object that will be changed via the pokedex component
+  pokemon:any = null;
+
   //inject the PokemonService so we can get its data or use its functions
   constructor(private ps:PokemonService) { }
 
@@ -24,5 +27,7 @@ export class WelcomeComponent implements OnInit {
     //serviceMessage is simply the name I gave to currentMessage to make it more clear where it's coming from
     this.subscription = this.ps.currentMessage.subscribe(serviceMessage => this.message = serviceMessage)
     //remember arrow functions, they take in some values and use them in an expression
+    
+    this.pokemon = this.ps.pokemon
   }
 }
