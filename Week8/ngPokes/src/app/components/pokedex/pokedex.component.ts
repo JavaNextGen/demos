@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -7,6 +8,11 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent implements OnInit {
+
+  //declare an empty String to be changed below 
+  message:string = "";
+  //this object lets us subscribe to observables
+  subscription: Subscription = new Subscription();
 
   //this is the input variable referred to by the two way binding in our HTML
   public input:number = 0;
@@ -37,6 +43,13 @@ export class PokedexComponent implements OnInit {
         this.pokemon = data.body;
         //we may have to do something with sprites
         console.log(this.pokemon) //will be helpful for debugs
+
+        //increment the counter in the service
+        this.ps.counter++;
+
+        //call the changeMessage() function from the service, which changes the message on the welcome page
+        this.ps.changeMessage("Number of Pokemon Found: " + this.ps.counter)
+
       },
       () => { //in case of errors, set pokemon to null since we didn't get anything back
         this.pokemon = null;

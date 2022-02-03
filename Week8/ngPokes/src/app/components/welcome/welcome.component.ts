@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 
 @Component({
@@ -8,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  //empty placeholder String to be changed via the pokedex component
+  message:string = "";
+  //this object will let us subscribe to observables
+  subscription: Subscription = new Subscription();
 
+  //inject the PokemonService so we can get its data or use its functions
+  constructor(private ps:PokemonService) { }
 
+  //when the component first starts up, change our message to the observable from the service
   ngOnInit(): void {
-
+    //we'll replace our default empty string message with whatever currentMessage is in the service
+    //serviceMessage is simply the name I gave to currentMessage to make it more clear where it's coming from
+    this.subscription = this.ps.currentMessage.subscribe(serviceMessage => this.message = serviceMessage)
+    //remember arrow functions, they take in some values and use them in an expression
   }
 }
