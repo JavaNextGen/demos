@@ -27,7 +27,8 @@ export class WelcomeComponent implements OnInit {
     //serviceMessage is simply the name I gave to currentMessage to make it more clear where it's coming from
     this.subscription = this.ps.currentMessage.subscribe(serviceMessage => this.message = serviceMessage)
     //remember arrow functions, they take in some values and use them in an expression
-    
+
+    //set the previously empty pokemon object to the pokemon in the service
     this.pokemon = this.ps.pokemon
   }
 }
