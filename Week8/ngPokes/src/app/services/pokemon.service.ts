@@ -11,20 +11,6 @@ import { Pokemon } from '../models/pokemon';
 //We inject services into components, thus giving the component the Service's fields and functions
 export class PokemonService {
 
-  //counter variable that we will display on the welcome page (will be incremented from pokedex TS)
-  counter:number = 0;
-
-  //This is our initial message. BehaviorSubject contains a String that we can change dynamically
-  //public messageSource = new BehaviorSubject("(S)Number of Pokemon Found: " + this.counter);
-  public messageSource = new BehaviorSubject("Default String from Service");
-  //turn the BehaviorSubject into an observable, so other components can get its value
-  currentMessage = this.messageSource.asObservable();
-
-  //we'll call this method from the pokedex component to change the default
-  changeMessage(message: string){
-    this.messageSource.next(message);
-  }
-
   //we need to inject HttpClient in order to make HTTP requests in this service class
   constructor(private http:HttpClient) { }
 
