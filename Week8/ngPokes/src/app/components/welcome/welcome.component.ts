@@ -10,6 +10,14 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class WelcomeComponent implements OnInit {
 
+  noWrapSlides = false;
+  showIndicator = true;
+
+  slides = [
+    {image: '../../assets/peach.png', text: 'First'},
+    {image: '../../assets/luna.png',text: 'Second'},
+ ];
+
   //empty placeholder String to be changed via the pokedex component
   message:string = "";
   //this object will let us subscribe to observables
