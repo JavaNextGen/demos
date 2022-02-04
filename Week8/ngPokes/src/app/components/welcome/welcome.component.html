@@ -1,19 +1,8 @@
 <h1 class="jumbotron">Welcome to ngPokes</h1> 
 
-<carousel [noWrap]="noWrapSlides" [showIndicators]="showIndicator">
-    <slide *ngFor="let slide of slides; let index=index">
-       <img [src]="slide.image" alt="image slide" style="display: block; width: 20%; height: 10%">
-       <div class="carousel-caption">
-          <h4>Slide {{index}}</h4>
-          <p>{{slide.text}}</p>
-       </div>
-    </slide>
- </carousel>
-
 <h3 class="jumbotron">{{message}}</h3>
 
 <div>
     <h3 class="jumbotron">Last Pokemon Found:</h3>
     <img src="{{pokemon.sprites.front_default}}"/>
 </div>
-
